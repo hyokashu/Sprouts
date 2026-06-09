@@ -1034,6 +1034,14 @@
   .qc-hero__slide {
     min-height: clamp(22rem, 46vh, 30rem);
   }
+  /* Collapse inactive slides so they don't inflate the grid row.
+     Cards become position:relative on desktop (desktop override below),
+     which puts them back in flex flow — stacking cards + text = 46-52rem.
+     Setting height:0 on inactive slides removes them from row sizing. */
+  .qc-hero__slide:not(.is-active) {
+    min-height: 0;
+    height: 0;
+  }
   .qc-hero__slide.is-active {
     display: grid;
     grid-template-columns: 1fr 1fr;
