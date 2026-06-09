@@ -86,7 +86,7 @@
 
 .qc-hero {
   position: relative;
-  min-height: 16rem;
+  min-height: 20rem;
   overflow: hidden;
   display: grid;
 }
@@ -96,7 +96,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 16rem;
+  min-height: 20rem;
   position: relative;
   overflow: hidden;
   opacity: 0;
@@ -1029,12 +1029,10 @@
 
   /* ── Hero ── */
   .qc-hero {
-    min-height: clamp(18rem, 38vh, 24rem);
-    max-height: clamp(18rem, 38vh, 24rem);
+    min-height: clamp(22rem, 46vh, 30rem);
   }
   .qc-hero__slide {
-    min-height: clamp(18rem, 38vh, 24rem);
-    max-height: clamp(18rem, 38vh, 24rem);
+    min-height: clamp(22rem, 46vh, 30rem);
   }
   .qc-hero__slide.is-active {
     display: grid;
@@ -1054,7 +1052,7 @@
     right: auto;
     top: auto;
     width: var(--hero-cards-w, 24rem);
-    height: clamp(18rem, 38vh, 24rem);
+    height: min(calc(var(--hero-cards-w, 24rem) * 4 / 3), clamp(22rem, 44vh, 28rem));
     grid-column: 2;
     grid-row: 1;
     margin: auto;
