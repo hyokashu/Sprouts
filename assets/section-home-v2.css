@@ -307,29 +307,39 @@
   align-items: center;
   gap: 0.5rem;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.qc-hero:hover .qc-hero__controls,
+.qc-hero__controls:focus-within {
+  opacity: 1;
 }
 .qc-hero__dots {
   display: flex;
   gap: 0.25rem;
 }
 .qc-hero__dot {
-  width: 0.3125rem;
-  height: 0.3125rem;
-  border-radius: 50%;
-  background: oklch(100% 0 0 / 0.25);
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: width 200ms cubic-bezier(0.23, 1, 0.32, 1),
-              background 200ms cubic-bezier(0.23, 1, 0.32, 1),
-              border-radius 200ms cubic-bezier(0.23, 1, 0.32, 1);
-  min-height: 2.75rem;
-  min-width: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.qc-hero__dot.is-active {
+.qc-hero__dot::before {
+  content: '';
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border-radius: 50%;
+  background: oklch(100% 0 0 / 0.25);
+  transition: width 200ms cubic-bezier(0.23, 1, 0.32, 1),
+              background 200ms cubic-bezier(0.23, 1, 0.32, 1),
+              border-radius 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.qc-hero__dot.is-active::before {
   width: 1rem;
   border-radius: 0.1875rem;
   background: var(--accent);
