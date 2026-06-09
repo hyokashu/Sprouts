@@ -12,6 +12,7 @@
 
   var current  = 0;
   var interval = null;
+  var isPaused = false;
   var INTERVAL_MS = 5000;
 
   function goTo(n) {
@@ -27,7 +28,9 @@
   }
 
   function start() {
-    interval = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
+    if (!isPaused) {
+      interval = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
+    }
   }
   function stop() { clearInterval(interval); }
 
@@ -63,9 +66,26 @@
 
   // Pause on hover/focus for accessibility
   hero.addEventListener('mouseenter', stop);
-  hero.addEventListener('mouseleave', start);
-  hero.addEventListener('focusin', stop);
-  hero.addEventListener('focusout', start);
+  hero.addEventListener('mouseleave', function () { if (!isPaused) start(); });
+  hero.addEventListener('focusin',  stop);
+  hero.addEventListener('focusout', function () { if (!isPaused) start(); });
+
+  // Persistent pause/play button
+  var pauseBtn = document.getElementById('qc-hero-pause');
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', function () {
+      isPaused = !isPaused;
+      if (isPaused) {
+        stop();
+        pauseBtn.setAttribute('aria-label', 'Play slideshow');
+        pauseBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        start();
+        pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+        pauseBtn.setAttribute('aria-pressed', 'false');
+      }
+    });
+  }
 
   start();
 }());
@@ -94,6 +114,28 @@
         if (panels[i]) panels[i].hidden = false;
       });
     });
+  });
+}());
+
+// ── Scroll-reveal ─────────────────────────────────────────────────────────────
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var sections = Array.from(document.querySelectorAll('.qc-home-section'));
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('will-reveal');
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+
+  sections.forEach(function (section) {
+    if (section.getBoundingClientRect().top > window.innerHeight * 0.85) {
+      section.classList.add('will-reveal');
+      observer.observe(section);
+    }
   });
 }());
 

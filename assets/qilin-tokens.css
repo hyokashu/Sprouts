@@ -87,6 +87,10 @@
   --safe-left:   env(safe-area-inset-left,   0px);
   --safe-right:  env(safe-area-inset-right,  0px);
 
+  /* ── Hero slide backgrounds ───────────────────────────────── */
+  --hero-poke-bg: oklch(13% 0.018 260);
+  --hero-op-bg:   oklch(11% 0.012 263);
+
   /* ── Default zone (forest green + gold outside brand zones) ── */
   --zone-primary:     oklch(24%   0.065 148);  /* forest green */
   --zone-accent:      oklch(65%   0.125  80);  /* gilded gold */

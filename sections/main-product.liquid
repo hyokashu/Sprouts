@@ -47,24 +47,25 @@
         </div>
 
         {% if product.images.size > 1 %}
-        <div class="qc-product__thumbnails" role="list">
+        <ul class="qc-product__thumbnails">
           {% for image in product.images limit: 6 %}
-            <button
-              class="qc-product__thumb {% if forloop.first %}is-active{% endif %}"
-              data-src="{{ image | image_url: width: 1200 }}"
-              aria-label="View image {{ forloop.index }}"
-              role="listitem"
-            >
-              <img
-                src="{{ image | image_url: width: 120 }}"
-                alt="{{ image.alt | escape }}"
-                width="120"
-                height="120"
-                loading="lazy"
+            <li>
+              <button
+                class="qc-product__thumb {% if forloop.first %}is-active{% endif %}"
+                data-src="{{ image | image_url: width: 1200 }}"
+                aria-label="View image {{ forloop.index }}"
               >
-            </button>
+                <img
+                  src="{{ image | image_url: width: 120 }}"
+                  alt="{{ image.alt | escape }}"
+                  width="120"
+                  height="120"
+                  loading="lazy"
+                >
+              </button>
+            </li>
           {% endfor %}
-        </div>
+        </ul>
         {% endif %}
       </div>
 

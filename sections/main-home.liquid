@@ -89,10 +89,16 @@
     </div>
   </div>
 
-  <!-- Slide dots -->
-  <div class="qc-hero__dots" role="tablist" aria-label="Hero slides">
-    <button class="qc-hero__dot is-active" data-dot="0" role="tab" id="qc-hero-dot-0" aria-label="Slide 1 of 2" aria-selected="true" aria-controls="qc-hero-slide-0"></button>
-    <button class="qc-hero__dot" data-dot="1" role="tab" id="qc-hero-dot-1" aria-label="Slide 2 of 2" aria-selected="false" aria-controls="qc-hero-slide-1"></button>
+  <!-- Slide controls: dots + pause -->
+  <div class="qc-hero__controls">
+    <div class="qc-hero__dots" role="tablist" aria-label="Hero slides">
+      <button class="qc-hero__dot is-active" data-dot="0" role="tab" id="qc-hero-dot-0" aria-label="Slide 1 of 2" aria-selected="true" aria-controls="qc-hero-slide-0"></button>
+      <button class="qc-hero__dot" data-dot="1" role="tab" id="qc-hero-dot-1" aria-label="Slide 2 of 2" aria-selected="false" aria-controls="qc-hero-slide-1"></button>
+    </div>
+    <button class="qc-hero__pause" id="qc-hero-pause" aria-label="Pause slideshow" aria-pressed="false">
+      <svg class="qc-hero__pause-icon qc-hero__pause-icon--pause" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      <svg class="qc-hero__pause-icon qc-hero__pause-icon--play" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
   </div>
 </div>
 
