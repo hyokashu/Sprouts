@@ -1029,10 +1029,10 @@
 
   /* ── Hero ── */
   .qc-hero {
-    min-height: 90vh;
+    min-height: clamp(30rem, 62vh, 42rem);
   }
   .qc-hero__slide {
-    min-height: 90vh;
+    min-height: clamp(30rem, 62vh, 42rem);
   }
   .qc-hero__slide.is-active {
     display: grid;
@@ -1045,7 +1045,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5rem 3rem 5rem 5rem;
+    padding: 3rem 3rem 3rem 5rem;
   }
   .qc-hero__cards {
     position: relative;
