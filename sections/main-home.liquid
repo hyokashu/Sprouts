@@ -11,7 +11,7 @@
 <div class="qc-hero" data-hero style="--hero-cards-w: {{ section.settings.hero_image_size | default: 24 }}rem">
 
   <!-- Slide 1 -->
-  <div class="qc-hero__slide qc-hero__slide--poke is-active" data-slide="0">
+  <div class="qc-hero__slide qc-hero__slide--poke is-active" data-slide="0" id="qc-hero-slide-0" role="tabpanel" aria-labelledby="qc-hero-dot-0">
     {% if section.settings.hero_slide_1_bg_image != blank %}
       {{ section.settings.hero_slide_1_bg_image | image_url: width: 1400 | image_tag: class: 'qc-hero__bg-img', loading: 'eager', alt: '' }}
       <div class="qc-hero__bg-overlay" aria-hidden="true"></div>
@@ -54,7 +54,7 @@
   </div>
 
   <!-- Slide 2 -->
-  <div class="qc-hero__slide qc-hero__slide--op" data-slide="1">
+  <div class="qc-hero__slide qc-hero__slide--op" data-slide="1" id="qc-hero-slide-1" role="tabpanel" aria-labelledby="qc-hero-dot-1" aria-hidden="true">
     {% if section.settings.hero_slide_2_bg_image != blank %}
       {{ section.settings.hero_slide_2_bg_image | image_url: width: 1400 | image_tag: class: 'qc-hero__bg-img', loading: 'lazy', alt: '' }}
       <div class="qc-hero__bg-overlay" aria-hidden="true"></div>
@@ -91,8 +91,8 @@
 
   <!-- Slide dots -->
   <div class="qc-hero__dots" role="tablist" aria-label="Hero slides">
-    <button class="qc-hero__dot is-active" data-dot="0" aria-label="Slide 1 of 2" aria-selected="true"></button>
-    <button class="qc-hero__dot" data-dot="1" aria-label="Slide 2 of 2" aria-selected="false"></button>
+    <button class="qc-hero__dot is-active" data-dot="0" role="tab" id="qc-hero-dot-0" aria-label="Slide 1 of 2" aria-selected="true" aria-controls="qc-hero-slide-0"></button>
+    <button class="qc-hero__dot" data-dot="1" role="tab" id="qc-hero-dot-1" aria-label="Slide 2 of 2" aria-selected="false" aria-controls="qc-hero-slide-1"></button>
   </div>
 </div>
 
@@ -132,10 +132,6 @@
 <section class="qc-home-section qc-home-section--bg-default" id="new-arrivals">
   <div class="qc-home-section__hd">
     <div>
-      <p class="qc-home-section__eyebrow">
-        <span class="qc-home-section__eyebrow-line" aria-hidden="true"></span>
-        Just landed
-      </p>
       <h2 class="qc-home-section__title">New Arrivals</h2>
     </div>
     {% if new_arrivals != blank %}
@@ -181,10 +177,6 @@
 <section class="qc-home-section qc-home-section--bg-surface" id="fan-favourites" data-tabs>
   <div class="qc-home-section__hd">
     <div>
-      <p class="qc-home-section__eyebrow">
-        <span class="qc-home-section__eyebrow-line" aria-hidden="true"></span>
-        Curated picks
-      </p>
       <h2 class="qc-home-section__title">Fan Favourites</h2>
     </div>
   </div>
@@ -289,10 +281,6 @@
 <section class="qc-home-section qc-home-section--bg-subtle" id="browse-categories">
   <div class="qc-home-section__hd">
     <div>
-      <p class="qc-home-section__eyebrow">
-        <span class="qc-home-section__eyebrow-line" aria-hidden="true"></span>
-        Explore the store
-      </p>
       <h2 class="qc-home-section__title">Browse by Category</h2>
     </div>
   </div>
@@ -421,10 +409,6 @@
 <section class="qc-home-section qc-home-section--bg-subtle" id="reviews">
   <div class="qc-home-section__hd">
     <div>
-      <p class="qc-home-section__eyebrow">
-        <span class="qc-home-section__eyebrow-line" aria-hidden="true"></span>
-        Collector reviews
-      </p>
       <h2 class="qc-home-section__title">What They're Saying</h2>
     </div>
   </div>

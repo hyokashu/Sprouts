@@ -16,10 +16,12 @@
 
   function goTo(n) {
     slides[current].classList.remove('is-active');
+    slides[current].setAttribute('aria-hidden', 'true');
     dots[current].classList.remove('is-active');
     dots[current].setAttribute('aria-selected', 'false');
     current = ((n % slides.length) + slides.length) % slides.length;
     slides[current].classList.add('is-active');
+    slides[current].setAttribute('aria-hidden', 'false');
     dots[current].classList.add('is-active');
     dots[current].setAttribute('aria-selected', 'true');
   }
@@ -36,6 +38,28 @@
       start();
     });
   });
+
+  // Arrow key navigation between tabs
+  var tablist = hero.querySelector('[role="tablist"]');
+  if (tablist) {
+    tablist.addEventListener('keydown', function (e) {
+      var idx = dots.indexOf(document.activeElement);
+      if (idx === -1) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        stop();
+        goTo(idx + 1);
+        dots[current].focus();
+        start();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        stop();
+        goTo(idx - 1);
+        dots[current].focus();
+        start();
+      }
+    });
+  }
 
   // Pause on hover/focus for accessibility
   hero.addEventListener('mouseenter', stop);
