@@ -86,7 +86,7 @@
 
 .qc-hero {
   position: relative;
-  min-height: 25rem;
+  min-height: 20rem;
   overflow: hidden;
   display: grid;
 }
@@ -96,7 +96,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 25rem;
+  min-height: 20rem;
   position: relative;
   overflow: hidden;
   opacity: 0;
@@ -1029,10 +1029,10 @@
 
   /* ── Hero ── */
   .qc-hero {
-    min-height: clamp(30rem, 62vh, 42rem);
+    min-height: clamp(24rem, 48vh, 34rem);
   }
   .qc-hero__slide {
-    min-height: clamp(30rem, 62vh, 42rem);
+    min-height: clamp(24rem, 48vh, 34rem);
   }
   .qc-hero__slide.is-active {
     display: grid;
